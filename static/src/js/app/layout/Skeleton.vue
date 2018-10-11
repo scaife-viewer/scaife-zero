@@ -1,7 +1,7 @@
 <template>
   <div class="skeleton">
 
-    <div :class="['sidebar', { collapsed: !sidebarLeftOpened, 'both-opened': sidebarLeftOpened && sidebarRightOpened }]" id="left-sidebar">
+    <div :class="['sidebar', { collapsed: !sidebarLeftOpened, 'both-opened': bothOpened }]" id="left-sidebar">
       <button class="close-left" v-if="sidebarLeftOpened" @click.prevent="toggleLeftSidebar">
         <icon name="arrow-left"></icon>
       </button>
@@ -22,7 +22,7 @@
       <icon name="arrow-left"></icon>
     </button>
 
-    <div :class="['sidebar', { collapsed: !sidebarRightOpened, 'both-opened': sidebarLeftOpened && sidebarRightOpened }]" id="right-sidebar">
+    <div :class="['sidebar', { collapsed: !sidebarRightOpened, 'both-opened': bothOpened }]" id="right-sidebar">
       <button class="close-right" v-if="sidebarRightOpened" @click.prevent="toggleRightSidebar">
         <icon name="arrow-right"></icon>
       </button>
@@ -39,6 +39,9 @@ import { TOGGLE_SIDEBAR_LEFT, TOGGLE_SIDEBAR_RIGHT } from '../constants';
 export default {
   name: 'skeleton',
   computed: {
+    bothOpened() {
+      return this.sidebarLeftOpened && this.sidebarRightOpened;
+    },
     sidebarLeftOpened() {
       return this.$store.state.sidebarLeftOpened;
     },
