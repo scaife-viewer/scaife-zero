@@ -1,3 +1,5 @@
+import socket
+
 from django.contrib.sites.models import Site
 from django.conf import settings as django_settings
 
@@ -37,3 +39,17 @@ def settings(request):
         })
 
     return ctx
+
+
+def vue_debug(request):
+    sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        sock.connect(("0.0.0.0", 8098))
+        debug = True
+    except ConnectionRefusedError:
+        print("connection failed")
+        debug = False
+    sock.close()
+    return {
+        "VUE_DEBUG": debug
+    }

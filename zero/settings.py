@@ -184,3 +184,7 @@ FIXTURE_DIRS = [
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+
+if DEBUG:
+    TEMPLATES[0]["OPTIONS"]["context_processors"].append("zero.context_processors.vue_debug")
