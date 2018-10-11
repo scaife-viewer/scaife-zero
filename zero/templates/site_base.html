@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% load render_bundle from webpack_loader %}
+{% load i18n %}
+
+
+{# remove to bring back topbar #}
+{% block topbar_base %}{% endblock %}
+
+
+{% block styles %}
+    {% render_bundle "vendor" "css" %}
+    {% render_bundle "main" "css" %}
+{% endblock %}
+
+
+{% block extra_head_base %}
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    {% block extra_head %}{% endblock %}
+{% endblock %}
+
+
+{% block footer %}
+    {% include "_footer.html" %}
+{% endblock %}
+
+
+{% block scripts %}
+    <script src="https://unpkg.com/jquery@3.3.1/dist/jquery.min.js"></script>
+    {% render_bundle "vendor" "js" %}
+    {% render_bundle "main" "js" %}
+{% endblock %}
+
+{% block extra_body_base %}
+    {% block extra_body %}{% endblock %}
+{% endblock %}
