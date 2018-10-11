@@ -1,16 +1,18 @@
 // Put any variable overrides in this file
 
-// Set Font Face to Roboto
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,700);
-$font-family-sans-serif: "Roboto", "Helvetica", 'Helvetica Neue', Helvetica, sans-serif;
+$perseus-red: #B45141;
+$perseus-red-lighter: lighten($perseus-red, 30%);
+$highlight-color: #FEA;
+$highlight-color-lighter: lighten($highlight-color, 12%);
 
-$footer-bg-color: #FAFAFA;
+$selected-color: #DEF;
 
 // Bootstrap v4
-// Reference: https://github.com/twbs/boo   tstrap/blob/v4-dev/scss/_variables.scss
+// Reference: https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss
 
-// For easy overriding
-$white:    #fff;
+// workaround
+
+$white:  #fff;
 $gray-100: #f8f9fa;
 $gray-200: #e9ecef;
 $gray-300: #dee2e6;
@@ -20,7 +22,7 @@ $gray-600: #868e96;
 $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
-$black:    #000;
+$black:  #000;
 
 $blue:    #007bff;
 $indigo:  #6610f2;
@@ -33,12 +35,15 @@ $green:   #28a745;
 $teal:    #20c997;
 $cyan:    #17a2b8;
 
-$primary:   $blue;
-$secondary: $gray-600;
-$success:   $green;
-$info:      $cyan;
-$warning:   $yellow;
-$danger:    $red;
-$light:     $gray-100;
-$dark:      $gray-800;
+$theme-colors:(
+    primary: $perseus-red,
+    secondary: $gray-600,
+    success: $blue,
+    info: $cyan,
+    warning: $yellow,
+    danger: $red,
+    light: $gray-100,
+    dark: $gray-800
+);
 
+// end workaround
