@@ -1,9 +1,12 @@
-# {{ project_name }}
+# Scaife Zero
+
+This is a minimalistic project that just has the basic layout of code and the Skeleton component with sidebars.
+
+Other projects could be based on this to add text providers and widgets and other pages. This project has no actual reader, library browsing, text search or user accounts.
+
+For the full Scaife Viewer running the Perseus Digital Library in production, see <https://github.com/scaife-viewer/scaife-viewer>.
 
 ## Getting Started
-
-Make sure you are using a virtual environment of some sort (e.g. `virtualenv` or
-`pyenv`).
 
 ```
 npm install
