@@ -4,15 +4,7 @@
         "model": "sites.site",
         "fields": {
             "domain": "localhost:8000",
-            "name": "example.com [localhost]"
-        }
-    },
-    {
-        "pk": 2,
-        "model": "sites.site",
-        "fields": {
-            "domain": "example.com",
-            "name": "example.com"
+            "name": "Scaife Zero"
         }
     }
 ]
