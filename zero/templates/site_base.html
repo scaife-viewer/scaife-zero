@@ -5,25 +5,45 @@
 {% load i18n %}
 
 
-{# remove to bring back topbar #}
-{% block topbar_base %}{% endblock %}
-
-
 {% block styles %}
     {% render_bundle "vendor" "css" %}
     {% render_bundle "main" "css" %}
 {% endblock %}
-
 
 {% block extra_head_base %}
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
     {% block extra_head %}{% endblock %}
 {% endblock %}
 
+{% block body_id %}body{% endblock %}
 
-{% block footer %}
-    {% include "_footer.html" %}
+{% block topbar_base %}
+  <header>
+    <nav>
+      <div class="container">
+        {% block topbar %}
+          {% block site_brand %}<a class="navbar-brand" href="{% url "home" %}">{% block site_name %}{{ SITE_NAME }}{% endblock %}</a>{% endblock %}
+          {% block navbar-toggler %}
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+              <span class="fa fa-bars"></span>
+            </button>
+          {% endblock %}
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% block nav %}
+              <ul class="navbar-nav mr-auto">
+                {% block nav_items %}
+                {% endblock %}
+              </ul>
+            {% endblock %}
+            {% block account_bar %}{% include "_account_bar.html" %}{% endblock %}
+          </div>
+        {% endblock %}
+      </div>
+    </nav>
+  </header>
 {% endblock %}
+
+{% block footer %}{% endblock %}
 
 
 {% block scripts %}
