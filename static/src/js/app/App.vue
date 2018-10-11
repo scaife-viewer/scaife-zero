@@ -1,6 +1,10 @@
 <template>
     <div class="app-container">
-        You are using Vue.
+        <skeleton>
+            <div slot="left">Left</div>
+            <div slot="body">Body</div>
+            <div slot="right">Right</div>
+        </skeleton>
     </div>
 </template>
 <script>
