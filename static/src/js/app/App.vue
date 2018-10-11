@@ -1,19 +1,19 @@
 <template>
-    <div class="app-container">
-        <skeleton>
-            <div slot="left">Left</div>
-            <div slot="body">Body</div>
-            <div slot="right">Right</div>
-        </skeleton>
-    </div>
+  <div class="app-container">
+    <skeleton>
+      <div slot="left">The left sidebar</div>
+      <div slot="body">The main body of content</div>
+      <div slot="right">The right sidebar</div>
+    </skeleton>
+  </div>
 </template>
 <script>
 import { Skeleton } from './layout';
 
 export default {
-    name: 'app',
-    components: {
-        Skeleton
-    }
+  name: 'app',
+  components: {
+    Skeleton
+  }
 }
 </script>
