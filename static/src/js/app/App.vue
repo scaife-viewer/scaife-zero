@@ -8,8 +8,13 @@
     </div>
 </template>
 <script>
+import { Skeleton } from './layout';
+
 export default {
-    name: 'app'
+    name: 'app',
+    components: {
+        Skeleton
+    }
 }
 </script>
 
