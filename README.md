@@ -7,6 +7,7 @@ Make sure you are using a virtual environment of some sort (e.g. `virtualenv` or
 
 ```
 npm install
+pipenv run pip install pip==18.0
 pipenv install
 pipenv shell
 ./manage.py migrate
