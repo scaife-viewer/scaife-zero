@@ -9,15 +9,7 @@ header {
       >a {
         @extend .navbar-brand;
       }
-      button.expand {
-        @extend .navbar-toggler;
-        i {
-          // @include icon(bars);
-        }
-      }
       .nav-container {
-        @extend .collapse;
-        @extend .navbar-collapse;
         .main-bar {
           @extend .navbar-nav;
           @extend .mr-auto;

@@ -25,20 +25,14 @@
       <div class="container">
         {% block topbar %}
           {% block site_brand %}<a class="navbar-brand" href="{% url "home" %}">{% block site_name %}{{ SITE_NAME }}{% endblock %}</a>{% endblock %}
-          {% block navbar-toggler %}
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
-              <span class="fa fa-bars"></span>
-            </button>
+          {% block navbar-toggler %}{% endblock %}
+          {% block nav %}
+            <ul class="navbar-nav mr-auto">
+              {% block nav_items %}
+              {% endblock %}
+            </ul>
           {% endblock %}
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            {% block nav %}
-              <ul class="navbar-nav mr-auto">
-                {% block nav_items %}
-                {% endblock %}
-              </ul>
-            {% endblock %}
-            {% block account_bar %}{% include "_account_bar.html" %}{% endblock %}
-          </div>
+          {% block account_bar %}{% include "_account_bar.html" %}{% endblock %}
         {% endblock %}
       </div>
     </nav>
