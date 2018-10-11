@@ -8,11 +8,17 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const SentryCliPlugin = require('@sentry/webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 const devMode = process.env.NODE_ENV !== 'production';
 const hotReload = process.env.HOT_RELOAD === '1';
+
+const vueRule = {
+  test: /\.vue$/,
+  use: 'vue-loader',
+  exclude: /node_modules/
+};
 
 const styleRule = {
   test: /\.(sa|sc|c)ss$/,
@@ -43,6 +49,7 @@ const plugins = [
     '$': 'jquery'
   }),
   new BundleTracker({ filename: './webpack-stats.json' }),
+  new VueLoaderPlugin(),
   new MiniCssExtractPlugin({
     filename: devMode ? '[name].css' : '[name].[hash].css',
     chunkFilename: devMode ? '[id].css' : '[id].[hash].css'
@@ -79,7 +86,7 @@ module.exports = {
     quiet: false,
     headers: { 'Access-Control-Allow-Origin': '*' }
   },
-  module: { rules: [jsRule, styleRule, assetRule] },
+  module: { rules: [vueRule, jsRule, styleRule, assetRule] },
   externals: { jquery: 'jQuery' },
   plugins,
   optimization: {
