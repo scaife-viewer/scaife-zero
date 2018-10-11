@@ -2,30 +2,22 @@
   <div class="skeleton">
 
     <div :class="['sidebar', { collapsed: !sidebarLeftOpened, 'both-opened': bothOpened }]" id="left-sidebar">
-      <button class="close-left" v-if="sidebarLeftOpened" @click.prevent="toggleLeftSidebar">
-        <icon name="arrow-left"></icon>
-      </button>
+      <sidebar-button v-if="sidebarLeftOpened" :is-open="sidebarLeftOpened" :is-left="true"></sidebar-button>
       <div>
         <slot name="left"></slot>
       </div>
     </div>
 
-    <button class="open-left" v-if="!sidebarLeftOpened" @click.prevent="toggleLeftSidebar">
-      <icon name="arrow-right"></icon>
-    </button>
+    <sidebar-button v-if="!sidebarLeftOpened" :is-open="sidebarLeftOpened" :is-left="true"></sidebar-button>
 
     <section id="content_body">
       <slot name="body"></slot>
     </section>
 
-    <button class="open-right" v-if="!sidebarRightOpened" @click.prevent="toggleRightSidebar">
-      <icon name="arrow-left"></icon>
-    </button>
+    <sidebar-button v-if="!sidebarRightOpened" :is-open="sidebarRightOpened" :is-left="false"></sidebar-button>
 
     <div :class="['sidebar', { collapsed: !sidebarRightOpened, 'both-opened': bothOpened }]" id="right-sidebar">
-      <button class="close-right" v-if="sidebarRightOpened" @click.prevent="toggleRightSidebar">
-        <icon name="arrow-right"></icon>
-      </button>
+      <sidebar-button v-if="sidebarRightOpened" :is-open="sidebarRightOpened" :is-left="false"></sidebar-button>
       <div>
         <slot name="right"></slot>
       </div>
@@ -34,10 +26,13 @@
 </template>
 
 <script>
-import { TOGGLE_SIDEBAR_LEFT, TOGGLE_SIDEBAR_RIGHT } from '../constants';
+import SidebarButton from './SidebarButton.vue';
 
 export default {
   name: 'skeleton',
+  components: {
+    SidebarButton
+  },
   computed: {
     bothOpened() {
       return this.sidebarLeftOpened && this.sidebarRightOpened;
@@ -48,14 +43,6 @@ export default {
     sidebarRightOpened() {
       return this.$store.state.sidebarRightOpened;
     },
-  },
-  methods: {
-    toggleLeftSidebar() {
-      this.$store.dispatch(TOGGLE_SIDEBAR_LEFT);
-    },
-    toggleRightSidebar() {
-      this.$store.dispatch(TOGGLE_SIDEBAR_RIGHT);
-    }
-  },
+  }
 };
 </script>

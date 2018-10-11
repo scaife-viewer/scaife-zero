@@ -75,8 +75,6 @@ body.reader {
     }
 
     .open-left, .close-left, .open-right, .close-right {
-      @extend .btn;
-      @extend .btn-link;
       position: absolute;
       top: 0;
       color: $gray-500;
