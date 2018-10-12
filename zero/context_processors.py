@@ -1,7 +1,8 @@
 import socket
 
-from django.contrib.sites.models import Site
 from django.conf import settings as django_settings
+
+from django.contrib.sites.models import Site
 
 
 def pinax_apps_filter(app):
