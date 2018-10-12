@@ -23,6 +23,6 @@ jobs:
         command: npm run lint
 workflows:
   version: 2
-  qa-deploy:
+  qa:
     jobs:
     - qa
