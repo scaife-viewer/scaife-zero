@@ -2,7 +2,9 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import createPersistedState from 'vuex-persistedstate';
 
-import { actions, getters, mutations, state } from './vuex';
+import {
+  actions, getters, mutations, state,
+} from './vuex';
 
 Vue.use(Vuex);
 
@@ -19,9 +21,9 @@ export default new Vuex.Store({
     createPersistedState({
       paths: [
         'sidebarLeftOpened',
-        'sidebarRightOpened'
+        'sidebarRightOpened',
       ],
       storage: window.localStorage,
     }),
-  ]
+  ],
 });

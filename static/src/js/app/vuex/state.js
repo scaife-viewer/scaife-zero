@@ -1,4 +1,4 @@
 export default {
   sidebarLeftOpened: true,
-  sidebarRightOpened: true
+  sidebarRightOpened: true,
 };

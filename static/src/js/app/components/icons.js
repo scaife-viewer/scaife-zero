@@ -3,7 +3,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons/faArrowLeft';
 
 const iconMap = [
   faArrowRight,
-  faArrowLeft
+  faArrowLeft,
 ].reduce((map, obj) => {
   map[obj.iconName] = obj;
   return map;
