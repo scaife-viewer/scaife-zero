@@ -8,8 +8,10 @@ Django = "*"
 pinax-templates = "*"
 django-webpack-loader = "*"
 
-
 [dev-packages]
 "flake8" = "*"
 isort = "*"
 "flake8-quotes" = "*"
+
+[requires]
+python_version = "3.7.1"
